@@ -21,10 +21,10 @@ The useEffect hook is used to update the chart whenever the histogramData state 
 
 The return statement defines the JSX (JavaScript XML) structure to render the UI of the component.
 
-The outermost <div> sets the background color to black.
-The <h1> element displays the heading "Terribly Tiny Tales Assignment" in white and centered.
+The outermost "div" sets the background color to black.
+The "h1" element displays the heading "Terribly Tiny Tales Assignment" in white and centered.
 The submit button is rendered inside a <div> and is disabled when the isLoading flag is true.
 If the histogramData is not empty, the following elements are rendered:
-An <h2> element displaying the heading "Word Frequency Histogram" in white and centered.
+An "h2" element displaying the heading "Word Frequency Histogram" in white and centered.
 An "Export" button to trigger the exportToCSV function.
 A <canvas> element with the chartRef to render the chart.

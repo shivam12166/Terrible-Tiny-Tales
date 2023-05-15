@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+ The code for above are in app.jsx file of src folder in react_app.
+ 
+ The explanation for above file are as follows:-
+ 
+ The import statements at the beginning import the necessary dependencies, React and Chart from the 'react' and 'chart.js/auto' libraries, respectively. The useState, useEffect, and useRef hooks are also imported from 'react'.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The App component is defined as a functional component. It represents the main component of the application.
 
-## Available Scripts
+Inside the App component, several state variables are declared using the useState hook:
 
-In the project directory, you can run:
+histogramData represents the data for the histogram. It is initially an empty array and will be updated with the top 20 most frequent words and their counts.
+isLoading is a boolean flag to track the loading state of the data. It is initially set to false.
+showHistogram is a boolean flag to control the visibility of the histogram. It is initially set to false.
+The chartRef variable is created using the useRef hook. It will be used to reference the canvas element where the chart will be rendered.
 
-### `npm start`
+The fetchData function is defined as an asynchronous function. It is responsible for fetching the text data from the specified URL and processing it to calculate word frequencies. It uses the fetch API to make an HTTP request and await for the response. Once the response is obtained, the text is extracted and split into an array of words using a regular expression. The word frequencies are calculated by reducing the array of words into a map, where the key is the word and the value is the count. The word-count map is then sorted in descending order by count and sliced to include only the top 20 entries. The resulting data is set in the histogramData state variable, and showHistogram is set to true to display the histogram.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The exportToCSV function is responsible for exporting the histogram data as a CSV file. It converts the data to a CSV string format, creates a link element, sets the appropriate attributes for downloading the CSV file, and triggers a click event to download the file.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The useEffect hook is used to update the chart whenever the histogramData state variable changes. It creates a new instance of Chart using the provided chartRef and configures it with the necessary options and data. The chart is rendered as a bar chart with the word labels on the x-axis and their respective counts on the y-axis.
 
-### `npm test`
+The return statement defines the JSX (JavaScript XML) structure to render the UI of the component.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The outermost <div> sets the background color to black.
+The <h1> element displays the heading "Terribly Tiny Tales Assignment" in white and centered.
+The submit button is rendered inside a <div> and is disabled when the isLoading flag is true.
+If the histogramData is not empty, the following elements are rendered:
+An <h2> element displaying the heading "Word Frequency Histogram" in white and centered.
+An "Export" button to trigger the exportToCSV function.
+A <canvas> element with the chartRef to render the chart.

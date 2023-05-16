@@ -28,3 +28,22 @@ If the histogramData is not empty, the following elements are rendered:
 An "h2" element displaying the heading "Word Frequency Histogram" in white and centered.
 An "Export" button to trigger the exportToCSV function.
 A <canvas> element with the chartRef to render the chart.
+ 
+ `Steps for Deploying Over netlify`
+ 
+ 1.First of all we open the site netlify.com
+ 
+ 2.Go and click over create new site where we get 3 option import from existing project,from the site,deploy manually.
+ 
+ 3.acording to your wish choose any one of them.
+ 
+ 4.I choosed deploy Manually and for deploy manully you have to use one command name "npm run build".
+ 
+ 5.After that the build folder created.
+ 
+ 6.Take the build folder and upload it over netlify it will get deployed within minute.
+ 
+ 7.So our finall link are as follows:
+ 
+ `https://courageous-griffin-a50248.netlify.app/`
+ 
